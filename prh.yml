@@ -1,0 +1,4 @@
+version: 1
+disableImports: true
+imports:
+  - path: ./dict/manual-added-rules.yml

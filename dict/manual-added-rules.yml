@@ -1,0 +1,195 @@
+version: 1
+rules:
+  - expected: SORACOM Air
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Air/i
+  - expected: Sigfox
+    options:
+      wordBoundary: true
+    patterns:
+      - /Sigfox/i
+  - expected: LoRaWAN
+    options:
+      wordBoundary: true
+    patterns:
+      - /LoRaWAN/i
+  - expected: plan-D
+    options:
+      wordBoundary: false
+    pattern: /plan[ \-]?D(?!U)/i
+    specs:
+      - from: planD
+        to: plan-D
+      - from: plan D
+        to: plan-D
+  - expected: plan-DU
+    options:
+      wordBoundary: true
+    pattern:
+      - /plan[ \-]?DU/i
+  - expected: plan-KM1
+    options:
+      wordBoundary: true
+    pattern:
+      - /plan[ \\-]?KM1/i
+  - expected: plan-K2
+    options:
+      wordBoundary: true
+    pattern:
+      - /plan[ \-]?K2/i
+  - expected: plan-K
+    options:
+      wordBoundary: true
+    pattern: /plan[ \-]?K(?!(2|M1))/i
+    specs:
+      - from: planK
+        to: plan-K
+      - from: plan K
+        to: plan-K
+  - expected: planNT1
+    options:
+      wordBoundary: true
+    pattern:
+      - /plan[ \-]?NT1/i
+  - expected: plan01s
+    options:
+      wordBoundary: true
+    patterns:
+      - /plan[\- ]?01[\- ]?s/i
+  - expected: plan01s Low Data Volume
+    options:
+      wordBoundary: true
+  - expected: planX1
+    options:
+      wordBoundary: true
+    pattern:
+      - /plan[ \\-]?X1/i
+  - expected: planX2
+    options:
+      wordBoundary: true
+    pattern:
+      - /plan[ \\-]?X2/i
+  - expected: planX3
+    options:
+      wordBoundary: true
+    pattern:
+      - /plan[ \\-]?X3/i
+  - expected: planP1
+    options:
+      wordBoundary: true
+    pattern:
+      - /plan[ \\-]?P1/i
+  - expected: SORACOM Arc
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Arc/i
+  - expected: SORACOM Napter
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Napter/i
+  - expected: SORACOM Peek
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Peek/i
+  - expected: Virtual Private Gateway
+    options:
+      wordBoundary: true
+    patterns:
+      - /Virtual[ \-]?Private[ \-]Gateway/i
+  - expected: SORACOM Canal
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Canal/i
+  - expected: SORACOM Direct
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Direct/i
+  - expected: SORACOM Door
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Door/i
+  - expected: SORACOM Gate
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Gate/i
+  - expected: SORACOM Junction
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Junction/i
+  - expected: Unified Endpoint
+    options:
+      wordBoundary: true
+    patterns:
+      - /Unified[ \-]?Endpoint/i
+  - expected: SORACOM Lagoon
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Lagoon/i
+  - expected: SORACOM Flux
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM Fl[au]x/i
+  - expected: SORACOM Harvest
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Harvest/i
+  - expected: SORACOM Beam
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Beam/i
+  - expected: SORACOM Funk
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Fun[ck]/i
+  - expected: SORACOM Funnel
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Funnel/i
+  - expected: SORACOM Orbit
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Orbit/i
+  - expected: SORACOM Endorse
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Endorse/i
+  - expected: SORACOM Inventory
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Inventry/i
+  - expected: SORACOM Krypton
+    options:
+      wordBoundary: true
+      patterns:
+        - /SORACOM[ \-]?Krypton/i
+  - expected: SORACOM Mosaic
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Mosaic/i
+  - expected: Soracom Cloud Camera Services
+    options:
+      wordBoundary: true
+    patterns:
+      - Soracom Cloud Camera Service
+      - SORACOM Cloud Camera Service
+      - SORACOM Cloud Camera Services
