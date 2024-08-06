@@ -4,53 +4,133 @@ import * as lint from '../src/index';
 const report = lint.default.fixer;
 const tester = new TextLintTester();
 
-tester.run('SORACOM Air', report, {
-  valid: ['SORACOM Air'],
-  invalid: [
-    {
-      text: 'soracom Air',
-      errors: [
-        {
-          message: 'soracom Air => SORACOM Air',
-        },
-      ],
-    },
-    {
-      text: 'SoracomAir',
-      errors: [
-        {
-          message: 'SoracomAir => SORACOM Air',
-        },
-      ],
-    },
-  ],
+const productsWithPrefix = [
+  'Air',
+  'Arc',
+  'Beam',
+  'Canal',
+  'Door',
+  'Direct',
+  'Endorse',
+  'Funnel',
+  'Funk',
+  'Flux',
+  'Gate',
+  'Harvest',
+  'Inventory',
+  'Junction',
+  'Krypton',
+  'Lagoon',
+  'Mosaic',
+  'Napter',
+  'Orbit',
+  'Peek',
+  'Query',
+  'Relay',
+  'UG',
+  'User Group'
+];
+
+productsWithPrefix.forEach((product) => {
+  tester.run(`${product}`, report, {
+    valid: [`SORACOM ${product}`],
+    invalid: [
+      {
+        text: `soracom ${product}`,
+        errors: [
+          {
+            message: `soracom ${product} => SORACOM ${product}`,
+          },
+        ],
+      },
+      {
+        text: `SORACOM ${product.toLowerCase()}`,
+        errors: [
+          {
+            message: `SORACOM ${product.toLowerCase()} => SORACOM ${product}`,
+          },
+        ],
+      },
+      {
+        text: `Soracom${product}`,
+        errors: [
+          {
+            message: `Soracom${product} => SORACOM ${product}`,
+          },
+        ],
+      },
+      {
+        text: `SORACOM-${product}`,
+        errors: [
+          {
+            message: `SORACOM-${product} => SORACOM ${product}`,
+          },
+        ],
+      },
+    ],
+  });
 });
-tester.run('LoRaWAN', report, {
-  valid: ['LoRaWAN'],
-  invalid: [
-    {
-      text: 'LoRaWan',
-      errors: [
-        {
-          message: 'LoRaWan => LoRaWAN',
-        },
-      ],
-    },
-  ],
+
+const productsWithoutPrefix = [
+  'LoRaWAN',
+  'Sigfox',
+];
+
+productsWithoutPrefix.forEach((product) => {
+  tester.run(`${product}`, report, {
+    valid: [product],
+    invalid: [
+      {
+        text: `${product.toLowerCase()}`,
+        errors: [
+          {
+            message: `${product.toLowerCase()} => ${product}`,
+          },
+        ],
+      },
+    ],
+  });
 });
-tester.run('Sigfox', report, {
-  valid: ['Sigfox'],
-  invalid: [
-    {
-      text: 'sigfox',
-      errors: [
-        {
-          message: 'sigfox => Sigfox',
-        },
-      ],
-    },
-  ],
+
+const productsWithSpace = [
+  'Virtual Private Gateway',
+  'Unified Endpoint',
+  'SORACOM User Group'
+];
+
+productsWithSpace.forEach((product) => {
+  tester.run(`${product}`, report, {
+    valid: [product],
+    invalid: [
+      {
+        text: `${product.toLowerCase()}`,
+        errors: [
+          {
+            message: `${product.toLowerCase()} => ${product}`,
+          },
+        ],
+      },
+      {
+        text: `${product.replace(/ /g,'')}`,
+        errors: [
+          {
+            message: `${product.replace(/ /g,'')} => ${product}`,
+          },
+        ],
+      },
+      {
+        text: `${product.replace(/ /g,'-')}`,
+        errors: [
+          {
+            message: `${product.replace(/ /g,'-')} => ${product}`,
+          },
+        ],
+      },
+    ],
+  });
 });
+
+
 tester.run('SORACOM Funk', report, {
   valid: ['SORACOM Funk'],
   invalid: [
@@ -75,16 +155,9 @@ tester.run('SORACOM Flux', report, {
         },
       ],
     },
-    {
-      text: 'soracom Flux',
-      errors: [
-        {
-          message: 'soracom Flux => SORACOM Flux',
-        },
-      ],
-    },
   ],
 });
+
 tester.run('Soracom Cloud Camera Services', report, {
   valid: ['Soracom Cloud Camera Services'],
   invalid: [
@@ -117,59 +190,41 @@ tester.run('Soracom Cloud Camera Services', report, {
     },
   ],
 });
-tester.run('plan-D', report, {
-  valid: ['plan-D', 'plan-DU'],
-  invalid: [
-    {
-      text: 'planD',
-      errors: [
-        {
-          message: 'planD => plan-D',
-        },
-      ],
-    },
-    {
-      text: 'planDU',
-      errors: [
-        {
-          message: 'planDU => plan-DU',
-        },
-      ],
-    },
-  ],
+
+const subscriptions = [
+  'planX1',
+  'planX2',
+  'planX3',
+  'planP1', 
+];
+
+subscriptions.forEach((subscription) => {
+  tester.run(subscription, report, {
+    valid: [subscription],
+    invalid: [
+      {
+        text: subscription.toLowerCase(),
+        errors: [
+          {
+            message: `${subscription.toLowerCase()} => ${subscription}`,
+          },
+        ],
+      },
+      {
+        text: subscription.replace(/plan/g, 'plan-'),
+        errors: [
+          {
+            message: `${subscription.replace(/plan/g, 'plan-')} => ${subscription}`,
+          },
+        ],
+      },
+    ],
+  });
 });
-tester.run('plan-K2', report, {
-  valid: ['plan-K', 'plan-K2'],
-  invalid: [
-    {
-      text: 'planK',
-      errors: [
-        {
-          message: 'planK => plan-K',
-        },
-      ],
-    },
-    {
-      text: 'planK2',
-      errors: [
-        {
-          message: 'planK2 => plan-K2',
-        },
-      ],
-    },
-  ],
-});
+
 tester.run('plan01s', report, {
   valid: ['plan01s'],
   invalid: [
-    {
-      text: 'plan-01s',
-      errors: [
-        {
-          message: 'plan-01s => plan01s',
-        },
-      ],
-    },
     {
       text: 'plan01S',
       errors: [
@@ -178,5 +233,53 @@ tester.run('plan01s', report, {
         },
       ],
     },
+    {
+      text: 'plan-01s',
+      errors: [
+        {
+          message: 'plan-01s => plan01s',
+        },
+      ],
+    },
   ],
+});
+
+const subscriptionsForJapan = [
+  'plan-D',
+  'plan-DU',
+  'plan-K',
+  'plan-K2',
+  'plan-KM1',
+];
+
+subscriptionsForJapan.forEach((subscription) => {
+  tester.run(subscription, report, {
+    valid: [subscription],
+    invalid: [
+      {
+        text: subscription.toLowerCase(),
+        errors: [
+          {
+            message: `${subscription.toLowerCase()} => ${subscription}`,
+          },
+        ],
+      },
+      {
+        text: subscription.replace(/-/g, ''),
+        errors: [
+          {
+            message: `${subscription.replace(/-/g, '')} => ${subscription}`,
+          },
+        ],
+      },
+      {
+        text: subscription.replace(/-/g, ' '),
+        errors: [
+          {
+            message: `${subscription.replace(/-/g, ' ')} => ${subscription}`,
+          },
+        ],
+      },
+    ],
+  });
 });
