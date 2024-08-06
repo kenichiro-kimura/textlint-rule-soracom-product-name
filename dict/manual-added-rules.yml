@@ -5,6 +5,121 @@ rules:
       wordBoundary: true
     patterns:
       - /SORACOM[ \-]?Air/i
+  - expected: SORACOM Arc
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Arc/i
+  - expected: SORACOM Beam
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Beam/i
+  - expected: SORACOM Canal
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Canal/i
+  - expected: SORACOM Direct
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Direct/i
+  - expected: SORACOM Door
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Door/i
+  - expected: SORACOM Endorse
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Endorse/i
+  - expected: SORACOM Funnel
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Funnel/i
+  - expected: SORACOM Funk
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Fun[ck]/i
+  - expected: SORACOM Flux
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Fl[au]x/i
+  - expected: SORACOM Gate
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Gate/i
+  - expected: SORACOM Harvest
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Harvest/i
+  - expected: SORACOM Inventory
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Inventory/i
+  - expected: SORACOM Junction
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Junction/i
+  - expected: SORACOM Krypton
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Krypton/i
+  - expected: SORACOM Lagoon
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Lagoon/i
+  - expected: SORACOM Mosaic
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Mosaic/i
+  - expected: SORACOM Napter
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Napter/i
+  - expected: SORACOM Orbit
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Orbit/i
+  - expected: SORACOM Peek
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Peek/i
+  - expected: SORACOM Query
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Query/i
+  - expected: SORACOM Relay
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Relay/i
+  - expected: SORACOM UG
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?UG/i
+  - expected: SORACOM User Group
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?User[ \-]?Group/i
   - expected: Sigfox
     options:
       wordBoundary: true
@@ -81,111 +196,16 @@ rules:
       wordBoundary: true
     pattern:
       - /plan[ \\-]?P1/i
-  - expected: SORACOM Arc
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Arc/i
-  - expected: SORACOM Napter
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Napter/i
-  - expected: SORACOM Peek
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Peek/i
   - expected: Virtual Private Gateway
     options:
       wordBoundary: true
     patterns:
-      - /Virtual[ \-]?Private[ \-]Gateway/i
-  - expected: SORACOM Canal
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Canal/i
-  - expected: SORACOM Direct
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Direct/i
-  - expected: SORACOM Door
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Door/i
-  - expected: SORACOM Gate
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Gate/i
-  - expected: SORACOM Junction
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Junction/i
+      - /Virtual[ \-]?Private[ \-]?Gateway/i
   - expected: Unified Endpoint
     options:
       wordBoundary: true
     patterns:
       - /Unified[ \-]?Endpoint/i
-  - expected: SORACOM Lagoon
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Lagoon/i
-  - expected: SORACOM Flux
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM Fl[au]x/i
-  - expected: SORACOM Harvest
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Harvest/i
-  - expected: SORACOM Beam
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Beam/i
-  - expected: SORACOM Funk
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Fun[ck]/i
-  - expected: SORACOM Funnel
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Funnel/i
-  - expected: SORACOM Orbit
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Orbit/i
-  - expected: SORACOM Endorse
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Endorse/i
-  - expected: SORACOM Inventory
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Inventry/i
-  - expected: SORACOM Krypton
-    options:
-      wordBoundary: true
-      patterns:
-        - /SORACOM[ \-]?Krypton/i
-  - expected: SORACOM Mosaic
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Mosaic/i
   - expected: Soracom Cloud Camera Services
     options:
       wordBoundary: true
