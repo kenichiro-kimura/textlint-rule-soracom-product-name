@@ -222,6 +222,36 @@ subscriptions.forEach((subscription) => {
   });
 });
 
+tester.run('planX3 X3-5MB', report, {
+  valid: ['planX3 X3-5MB'],
+  invalid: [
+    {
+      text: 'planX3-5MB',
+      errors: [
+        {
+          message: 'planX3-5MB => planX3 X3-5MB',
+        },
+      ],
+    },
+    {
+      text: 'planX3 5MB',
+      errors: [
+        {
+          message: 'planX3 5MB => planX3 X3-5MB',
+        },
+      ],
+    },
+    {
+      text: 'planX3 X3 5MB',
+      errors: [
+        {
+          message: 'planX3 X3 5MB => planX3 X3-5MB',
+        },
+      ],
+    },
+  ],
+});
+
 tester.run('plan01s', report, {
   valid: ['plan01s'],
   invalid: [
@@ -238,6 +268,36 @@ tester.run('plan01s', report, {
       errors: [
         {
           message: 'plan-01s => plan01s',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('plan01s - Low Data Volume', report, {
+  valid: ['plan01s - Low Data Volume'],
+  invalid: [
+    {
+      text: 'plan01s Low Data Volume',
+      errors: [
+        {
+          message: 'plan01s Low Data Volume => plan01s - Low Data Volume',
+        },
+      ],
+    },
+    {
+      text: 'plan01s LowDataVolume',
+      errors: [
+        {
+          message: 'plan01s LowDataVolume => plan01s - Low Data Volume',
+        },
+      ],
+    },
+    {
+      text: 'plan01s - LowDataVolume',
+      errors: [
+        {
+          message: 'plan01s - LowDataVolume => plan01s - Low Data Volume',
         },
       ],
     },
@@ -283,3 +343,79 @@ subscriptionsForJapan.forEach((subscription) => {
     ],
   });
 });
+
+const bundle300MBs = [
+  'D',
+  'K2',
+];
+
+bundle300MBs.forEach((subscription) => {
+  tester.run(`plan-${subscription} ${subscription}-300MB`, report, {
+    valid: [`plan-${subscription} ${subscription}-300MB`],
+    invalid: [
+      {
+        text: `plan-${subscription}-300MB`,
+        errors: [
+          {
+            message: `plan-${subscription}-300MB => plan-${subscription} ${subscription}-300MB`,
+          },
+        ],
+      },
+      {
+        text: `plan-${subscription} 300MB`,
+        errors: [
+          {
+            message: `plan-${subscription} 300MB => plan-${subscription} ${subscription}-300MB`,
+          },
+        ],
+      },
+      {
+        text: `plan-${subscription} ${subscription}300MB`,
+        errors: [
+          {
+            message: `plan-${subscription} ${subscription}300MB => plan-${subscription} ${subscription}-300MB`,
+          },
+        ],
+      },
+    ],
+  });
+});
+
+const duBundles = [
+  '10GB',
+  '50GB',
+  '100GB',
+];
+
+duBundles.forEach((bundle) => {
+  tester.run(`plan-DU ${bundle}`, report, {
+    valid: [`plan-DU DU-${bundle}`],
+    invalid: [
+      {
+        text: `plan-DU-${bundle}`,
+        errors: [
+          {
+            message: `plan-DU-${bundle} => plan-DU DU-${bundle}`,
+          },
+        ],
+      },
+      {
+        text: `plan-DU ${bundle}`,
+        errors: [
+          {
+            message: `plan-DU ${bundle} => plan-DU DU-${bundle}`,
+          },
+        ],
+      },
+      {
+        text: `plan-DU DU${bundle}`,
+        errors: [
+          {
+            message: `plan-DU DU${bundle} => plan-DU DU-${bundle}`,
+          },
+        ],
+      },
+    ],
+  });
+});
+

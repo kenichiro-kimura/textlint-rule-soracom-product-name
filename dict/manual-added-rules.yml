@@ -133,17 +133,33 @@ rules:
   - expected: plan-D
     options:
       wordBoundary: false
-    pattern: /plan[ \-]?D(?!U)/i
+    pattern: /plan[ \-]?D(?!([ \-]?D?[ \-]?300MB|U|U[ \-](10|50|100)GB))/i
     specs:
       - from: planD
         to: plan-D
       - from: plan D
         to: plan-D
+  - expected: plan-D D-300MB
+    options:
+      wordBoundary: false
+    pattern: /plan[ \-]?D[ \-]?D?[ \-]?300MB/i
   - expected: plan-DU
     options:
       wordBoundary: true
     pattern:
       - /plan[ \-]?DU/i
+  - expected: plan-DU DU-10GB
+    options:
+      wordBoundary: false
+    pattern: /plan[ \-]?DU[ \-]?(DU)?[ \-]?10GB/i
+  - expected: plan-DU DU-50GB
+    options:
+      wordBoundary: false
+    pattern: /plan[ \-]?DU[ \-]?(DU)?[ \-]?50GB/i
+  - expected: plan-DU DU-100GB
+    options:
+      wordBoundary: false
+    pattern: /plan[ \-]?DU[ \-]?(DU)?[ \-]?100GB/i
   - expected: plan-KM1
     options:
       wordBoundary: true
@@ -154,10 +170,15 @@ rules:
       wordBoundary: true
     pattern:
       - /plan[ \-]?K2/i
+  - expected: plan-K2 K2-300MB
+    options:
+      wordBoundary: true
+    pattern:
+      - /plan[ \-]?K2[ \-]?(K2)?[ \-]?300MB/i
   - expected: plan-K
     options:
       wordBoundary: true
-    pattern: /plan[ \-]?K(?!(2|M1))/i
+    pattern: /plan[ \-]?K(?!(2|2[ \-]?(K2)?[ \-]?300MB|M1))/i
     specs:
       - from: planK
         to: plan-K
@@ -172,10 +193,25 @@ rules:
     options:
       wordBoundary: true
     patterns:
-      - /plan[\- ]?01[\- ]?s/i
-  - expected: plan01s Low Data Volume
+      - /plan[\- ]?01[\- ]?s(?!([ \-]?[ \-]?[ \-]?Low[ \-]?Data[ \-]?Volume))/i
+    specs:
+      - from: plan-01s
+        to: plan01s
+      - from: plan 01s
+        to: plan01s
+      - from: plan-01-s
+        to: plan01s
+      - from: plan 01-s
+        to: plan01s
+      - from: plan-01 s
+        to: plan01s
+      - from: plan 01 s
+        to: plan01s
+  - expected: plan01s - Low Data Volume
     options:
       wordBoundary: true
+    patterns:
+      - /plan[\- ]?01[\- ]?s[ \-]?[ \-]?[ \-]?Low[ \-]?Data[ \-]?Volume/i
   - expected: planX1
     options:
       wordBoundary: true
@@ -190,7 +226,12 @@ rules:
     options:
       wordBoundary: true
     pattern:
-      - /plan[ \\-]?X3/i
+      - /plan[ \\-]?X3(?![ \-]?(X3)?[ \-]?5MB)/i
+  - expected: planX3 X3-5MB
+    options:
+      wordBoundary: true
+    pattern:
+      - /plan[ \\-]?X3[ \-]?(X3)?[ \-]?5MB/i
   - expected: planP1
     options:
       wordBoundary: true
