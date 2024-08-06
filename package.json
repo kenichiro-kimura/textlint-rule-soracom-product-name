@@ -28,7 +28,6 @@
     "test:lint": "textlint-scripts test",
     "test:jest": "jest specs/",
     "build": "textlint-scripts build",
-    "createrule": "npx ts-node src/createRules.ts",
     "prepublish": "npm run --if-present build",
     "commitlint": "commitlint -e $GIT_PARAMS",
     "tsnode": "ts-node",
