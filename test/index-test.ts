@@ -419,3 +419,33 @@ duBundles.forEach((bundle) => {
   });
 });
 
+const vpgTypes = [
+  'E',
+  'F',
+  'G',
+  'F2',
+];
+
+vpgTypes.forEach((type) => {
+  tester.run(`Virtual Private Gateway Type-${type}`, report, {
+    valid: [`Virtual Private Gateway Type-${type}`],
+    invalid: [
+      {
+        text: `Virtual Private Gateway Type ${type}`,
+        errors: [
+          {
+            message: `Virtual Private Gateway Type ${type} => Virtual Private Gateway Type-${type}`,
+          },
+        ],
+      },
+      {
+        text: `Virtual Private Gateway-Type-${type}`,
+        errors: [
+          {
+            message: `Virtual Private Gateway-Type-${type} => Virtual Private Gateway Type-${type}`,
+          },
+        ],
+      },
+    ],
+  });
+});

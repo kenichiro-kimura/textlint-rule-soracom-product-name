@@ -241,7 +241,27 @@ rules:
     options:
       wordBoundary: true
     patterns:
-      - /Virtual[ \-]?Private[ \-]?Gateway/i
+      - /Virtual[ \-]?Private[ \-]?Gateway(?!([ \-]?Type[ \-]?(E|F|G|F2)))/i
+  - expected: Virtual Private Gateway Type-E
+    options:
+      wordBoundary: true
+    patterns:
+      - /Virtual[ \-]?Private[ \-]?Gateway[ \-]?Type[ \-]?E/i
+  - expected: Virtual Private Gateway Type-G
+    options:
+      wordBoundary: true
+    patterns:
+      - /Virtual[ \-]?Private[ \-]?Gateway[ \-]?Type[ \-]?G/i
+  - expected: Virtual Private Gateway Type-F
+    options:
+      wordBoundary: true
+    patterns:
+      - /Virtual[ \-]?Private[ \-]?Gateway[ \-]?Type[ \-]?F(?!2)/i
+  - expected: Virtual Private Gateway Type-F2
+    options:
+      wordBoundary: true
+    patterns:
+      - /Virtual[ \-]?Private[ \-]?Gateway[ \-]?Type[ \-]?F2/i
   - expected: Unified Endpoint
     options:
       wordBoundary: true
