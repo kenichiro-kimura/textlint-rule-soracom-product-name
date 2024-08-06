@@ -95,7 +95,8 @@ productsWithoutPrefix.forEach((product) => {
 const productsWithSpace = [
   'Virtual Private Gateway',
   'Unified Endpoint',
-  'SORACOM User Group'
+  'SORACOM Access Management',
+  'SORACOM User Group',
 ];
 
 productsWithSpace.forEach((product) => {
@@ -144,6 +145,7 @@ tester.run('SORACOM Funk', report, {
     },
   ],
 });
+
 tester.run('SORACOM Flux', report, {
   valid: ['SORACOM Flux'],
   invalid: [
@@ -158,6 +160,74 @@ tester.run('SORACOM Flux', report, {
   ],
 });
 
+const lagoonVersions = [
+  '2',
+  '3',
+];
+
+lagoonVersions.forEach((version) => {
+  tester.run(`SORACOM Lagoon ${version}`, report, {
+    valid: [`SORACOM Lagoon ${version}`],
+    invalid: [
+      {
+        text: `SORACOM Lagoon${version}`,
+        errors: [
+          {
+            message: `SORACOM Lagoon${version} => SORACOM Lagoon ${version}`,
+          },
+        ],
+      },
+      {
+        text: `SORACOM Lagoon-${version}`,
+        errors: [
+          {
+            message: `SORACOM Lagoon-${version} => SORACOM Lagoon ${version}`,
+          },
+        ],
+      },
+    ],
+  });
+});
+
+const nonCapitalizedProducts = [
+  'Mobile',
+  'Cloud SMS Delivery',
+  'Cloud MFA',
+  'Cloud Camera Services',
+];
+
+nonCapitalizedProducts.forEach((product) => {
+  tester.run(`Soracom ${product}`, report, {
+    valid: [`Soracom ${product}`],
+    invalid: [
+      {
+        text: `SORACOM ${product}`,
+        errors: [
+          {
+            message: `SORACOM ${product} => Soracom ${product}`,
+          },
+        ],
+      },
+      {
+        text: `soracom ${product}`,
+        errors: [
+          {
+            message: `soracom ${product} => Soracom ${product}`,
+          },
+        ],
+      },
+      {
+        text: `Soracom ${product.toLowerCase()}`,
+        errors: [
+          {
+            message: `Soracom ${product.toLowerCase()} => Soracom ${product}`,
+          },
+        ],
+      },
+    ],
+  });
+});
+
 tester.run('Soracom Cloud Camera Services', report, {
   valid: ['Soracom Cloud Camera Services'],
   invalid: [
@@ -167,24 +237,6 @@ tester.run('Soracom Cloud Camera Services', report, {
         {
           message:
             'Soracom Cloud Camera Service => Soracom Cloud Camera Services',
-        },
-      ],
-    },
-    {
-      text: 'SORACOM Cloud Camera Service',
-      errors: [
-        {
-          message:
-            'SORACOM Cloud Camera Service => Soracom Cloud Camera Services',
-        },
-      ],
-    },
-    {
-      text: 'SORACOM Cloud Camera Services',
-      errors: [
-        {
-          message:
-            'SORACOM Cloud Camera Services => Soracom Cloud Camera Services',
         },
       ],
     },

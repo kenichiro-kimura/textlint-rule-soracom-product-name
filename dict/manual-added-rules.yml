@@ -79,7 +79,24 @@ rules:
     options:
       wordBoundary: true
     patterns:
-      - /SORACOM[ \-]?Lagoon/i
+      - /SORACOM[ \-]?Lagoon(?!([ \-]?[23]))/i
+    specs:
+      - from: SORACOM-Lagoon
+        to: SORACOM Lagoon
+      - from: SORACOM-Lagoon
+        to: SORACOM Lagoon
+      - from: Soracom Lagoon
+        to: SORACOM Lagoon
+  - expected: SORACOM Lagoon 2
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Lagoon[ \-]?2/i
+  - expected: SORACOM Lagoon 3
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Lagoon[ \-]?3/i
   - expected: SORACOM Mosaic
     options:
       wordBoundary: true
@@ -120,6 +137,11 @@ rules:
       wordBoundary: true
     patterns:
       - /SORACOM[ \-]?User[ \-]?Group/i
+  - expected: SORACOM Access Management
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Access[ \-]?Management/i
   - expected: Sigfox
     options:
       wordBoundary: true
@@ -271,6 +293,19 @@ rules:
     options:
       wordBoundary: true
     patterns:
-      - Soracom Cloud Camera Service
-      - SORACOM Cloud Camera Service
-      - SORACOM Cloud Camera Services
+      - /Soracom Cloud Camera Services?/i
+  - expected: Soracom Mobile
+    options:
+      wordBoundary: true
+    patterns:
+      - /Soracom Mobile/i
+  - expected: Soracom Cloud SMS Delivery
+    options:
+      wordBoundary: true
+    patterns:
+      - /Soracom Cloud SMS Delivery/i
+  - expected: Soracom Cloud MFA
+    options:
+      wordBoundary: true
+    patterns:
+      - /Soracom Cloud MFA/i
