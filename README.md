@@ -1,7 +1,8 @@
 # textlint-rule-soracom-product-name [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 > [!IMPORTANT]
-> This rule is not an official rule of SORACOM
+> This rule is not an official rule of SORACOM.  
+> Please read about the [trademark guideline of SORACOM](https://soracom.jp/share/trademark_guideline/).
 
 [textlint](https://textlint.github.io/ "textlint official site") rule for SORACOM product names.
 
