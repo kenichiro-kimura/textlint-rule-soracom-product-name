@@ -1,6 +1,6 @@
 {
   "name": "textlint-rule-soracom-product-name",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "release": {
     "branches": [
       "main",
@@ -69,7 +69,7 @@
     "typescript": "^5.3.3"
   },
   "description": "Rule for SORACOM product names",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kenichiro-kimura/textlint-rule-soracom-product-name.git"
