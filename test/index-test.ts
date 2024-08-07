@@ -131,9 +131,33 @@ productsWithSpace.forEach((product) => {
   });
 });
 
+tester.run('SORACOM Endorse', report, {
+  invalid: [
+    {
+      text: 'SORACOM Endorce',
+      errors: [
+        {
+          message: 'SORACOM Endorce => SORACOM Endorse',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Funnel', report, {
+  invalid: [
+    {
+      text: 'SORACOM Funel',
+      errors: [
+        {
+          message: 'SORACOM Funel => SORACOM Funnel',
+        },
+      ],
+    },
+  ],
+});
 
 tester.run('SORACOM Funk', report, {
-  valid: ['SORACOM Funk'],
   invalid: [
     {
       text: 'SORACOM Func',
@@ -147,7 +171,6 @@ tester.run('SORACOM Funk', report, {
 });
 
 tester.run('SORACOM Flux', report, {
-  valid: ['SORACOM Flux'],
   invalid: [
     {
       text: 'SORACOM Flax',
@@ -160,6 +183,81 @@ tester.run('SORACOM Flux', report, {
   ],
 });
 
+tester.run('SORACOM Harvest', report, {
+  invalid: [
+    {
+      text: 'SORACOM Hervest',
+      errors: [
+        {
+          message: 'SORACOM Hervest => SORACOM Harvest',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Harbest',
+      errors: [
+        {
+          message: 'SORACOM Harbest => SORACOM Harvest',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Inventory', report, {
+  invalid: [
+    {
+      text: 'SORACOM Inventry',
+      errors: [
+        {
+          message: 'SORACOM Inventry => SORACOM Inventory',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Inbentory',
+      errors: [
+        {
+          message: 'SORACOM Inbentory => SORACOM Inventory',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Krypton', report, {
+  invalid: [
+    {
+      text: 'SORACOM Klypton',
+      errors: [
+        {
+          message: 'SORACOM Klypton => SORACOM Krypton',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Lagoon', report, {
+  invalid: [
+    {
+      text: 'SORACOM Lagon',
+      errors: [
+        {
+          message: 'SORACOM Lagon => SORACOM Lagoon',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Laggon',
+      errors: [
+        {
+          message: 'SORACOM Laggon => SORACOM Lagoon',
+        },
+      ],
+    },
+  ],
+});
 const lagoonVersions = [
   '2',
   '3',
@@ -189,11 +287,128 @@ lagoonVersions.forEach((version) => {
   });
 });
 
-const nonCapitalizedProducts = [
-  'Mobile',
+tester.run('SORACOM Mosaic', report, {
+  invalid: [
+    {
+      text: 'SORACOM Mozaic',
+      errors: [
+        {
+          message: 'SORACOM Mozaic => SORACOM Mosaic',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Mosaik',
+      errors: [
+        {
+          message: 'SORACOM Mosaik => SORACOM Mosaic',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Napter', report, {
+  invalid: [
+    {
+      text: 'SORACOM Nepter',
+      errors: [
+        {
+          message: 'SORACOM Nepter => SORACOM Napter',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Naptar',
+      errors: [
+        {
+          message: 'SORACOM Naptar => SORACOM Napter',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Peek', report, {
+  invalid: [
+    {
+      text: 'SORACOM Peak',
+      errors: [
+        {
+          message: 'SORACOM Peak => SORACOM Peek',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Peeek',
+      errors: [
+        {
+          message: 'SORACOM Peeek => SORACOM Peek',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Query', report, {
+  invalid: [
+    {
+      text: 'SORACOM Querry',
+      errors: [
+        {
+          message: 'SORACOM Querry => SORACOM Query',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Quely',
+      errors: [
+        {
+          message: 'SORACOM Quely => SORACOM Query',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Relay', report, {
+  invalid: [
+    {
+      text: 'SORACOM Rely',
+      errors: [
+        {
+          message: 'SORACOM Rely => SORACOM Relay',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Reley',
+      errors: [
+        {
+          message: 'SORACOM Reley => SORACOM Relay',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Reray',
+      errors: [
+        {
+          message: 'SORACOM Reray => SORACOM Relay',
+        },
+      ],
+    },
+  ],
+});
+
+const nonCapitalizedProductsWithSpace = [
   'Cloud SMS Delivery',
   'Cloud MFA',
   'Cloud Camera Services',
+];
+
+const nonCapitalizedProducts = [
+  'Mobile',
+  ...nonCapitalizedProductsWithSpace
 ];
 
 nonCapitalizedProducts.forEach((product) => {
@@ -217,10 +432,34 @@ nonCapitalizedProducts.forEach((product) => {
         ],
       },
       {
+        text: `Soracom-${product}`,
+        errors: [
+          {
+            message: `Soracom-${product} => Soracom ${product}`,
+          },
+        ],
+      },
+      {
         text: `Soracom ${product.toLowerCase()}`,
         errors: [
           {
             message: `Soracom ${product.toLowerCase()} => Soracom ${product}`,
+          },
+        ],
+      },
+    ],
+  });
+});
+
+
+nonCapitalizedProductsWithSpace.forEach((product) => {
+  tester.run(`Soracom ${product}`, report, {
+    invalid: [
+      {
+        text: `Soracom ${product.replace(/ /,'-')}`,
+        errors: [
+          {
+            message: `Soracom ${product.replace(/ /,'-')} => Soracom ${product}`,
           },
         ],
       },

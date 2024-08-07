@@ -34,12 +34,26 @@ rules:
     options:
       wordBoundary: true
     patterns:
-      - /SORACOM[ \-]?Endorse/i
+      - /SORACOM[ \-]?Endor[cs]e/i
+    specs:
+      - from: SORACOM-Endorse
+        to: SORACOM Endorse
+      - from: SORACOM Endorce
+        to: SORACOM Endorse
+      - from: Soracom Endorse
+        to: SORACOM Endorse
   - expected: SORACOM Funnel
     options:
       wordBoundary: true
     patterns:
-      - /SORACOM[ \-]?Funnel/i
+      - /SORACOM[ \-]?Fun+el/i
+    specs:
+      - from: SORACOM-Funnel
+        to: SORACOM Funnel
+      - from: SORACOM Funel
+        to: SORACOM Funnel
+      - from: Soracom Funnel
+        to: SORACOM Funnel
   - expected: SORACOM Funk
     options:
       wordBoundary: true
@@ -59,12 +73,28 @@ rules:
     options:
       wordBoundary: true
     patterns:
-      - /SORACOM[ \-]?Harvest/i
+      - /SORACOM[ \-]?H[ae]r[bv]est/i
+    specs:
+      - from: SORACOM-Harvest
+        to: SORACOM Harvest
+      - from: SORACOM Harbest
+        to: SORACOM Harvest
+      - from: SORACOM Hervest
+        to: SORACOM Harvest
+      - from: SORACOM Harbest
+        to: SORACOM Harvest
   - expected: SORACOM Inventory
     options:
       wordBoundary: true
     patterns:
-      - /SORACOM[ \-]?Inventory/i
+      - /SORACOM[ \-]?In[bv]ento?ry/i
+    specs:
+      - from: SORACOM-Inventory
+        to: SORACOM Inventory
+      - from: SORACOM Inbentory
+        to: SORACOM Inventory
+      - from: SORACOM Inventry
+        to: SORACOM Inventory
   - expected: SORACOM Junction
     options:
       wordBoundary: true
@@ -74,12 +104,17 @@ rules:
     options:
       wordBoundary: true
     patterns:
-      - /SORACOM[ \-]?Krypton/i
+      - /SORACOM[ \-]?K[lr]ypton/i
+    specs:
+      - from: SORACOM-Krypton
+        to: SORACOM Krypton
+      - from: SORACOM Klypton
+        to: SORACOM Krypton
   - expected: SORACOM Lagoon
     options:
       wordBoundary: true
     patterns:
-      - /SORACOM[ \-]?Lagoon(?!([ \-]?[23]))/i
+      - /SORACOM[ \-]?Lag+o+n(?!([ \-]?[23]))/i
     specs:
       - from: SORACOM-Lagoon
         to: SORACOM Lagoon
@@ -87,26 +122,49 @@ rules:
         to: SORACOM Lagoon
       - from: Soracom Lagoon
         to: SORACOM Lagoon
-  - expected: SORACOM Lagoon 2
+      - from: SORACOM Laggon
+        to: SORACOM Lagoon
+      - from: SORACOM Lagon
+        to: SORACOM Lagoon
+  - expected: SORACOM Lagoon $1
     options:
       wordBoundary: true
     patterns:
-      - /SORACOM[ \-]?Lagoon[ \-]?2/i
-  - expected: SORACOM Lagoon 3
-    options:
-      wordBoundary: true
-    patterns:
-      - /SORACOM[ \-]?Lagoon[ \-]?3/i
+      - /SORACOM[ \-]?Lagoon[ \-]?([23])/i
+    specs:
+      - from: SORACOM-Lagoon 2
+        to: SORACOM Lagoon 2
+      - from: SORACOM-Lagoon 3
+        to: SORACOM Lagoon 3
+      - from: SORACOM Lagoon2
+        to: SORACOM Lagoon 2
   - expected: SORACOM Mosaic
     options:
       wordBoundary: true
     patterns:
-      - /SORACOM[ \-]?Mosaic/i
+      - /SORACOM[ \-]?Mo[sz]ai[ck]/i
+      - /SORACOM[ \-]?Mo[sz]ia[ck]/i
+    specs:
+      - from: SORACOM-Mosaic
+        to: SORACOM Mosaic
+      - from: SORACOM Mosaik
+        to: SORACOM Mosaic
+      - from: SORACOM Mozaic
+        to: SORACOM Mosaic
+      - from: SORACOM Mosaic
+        to: SORACOM Mosaic
   - expected: SORACOM Napter
     options:
       wordBoundary: true
     patterns:
-      - /SORACOM[ \-]?Napter/i
+      - /SORACOM[ \-]?N[ae]pt[ae]r/i
+    specs:
+      - from: SORACOM-Napter
+        to: SORACOM Napter
+      - from: SORACOM Nepter
+        to: SORACOM Napter
+      - from: SORACOM Naptar
+        to: SORACOM Napter
   - expected: SORACOM Orbit
     options:
       wordBoundary: true
@@ -116,17 +174,38 @@ rules:
     options:
       wordBoundary: true
     patterns:
-      - /SORACOM[ \-]?Peek/i
+      - /SORACOM[ \-]?Pe+a?k/i
+    specs:
+      - from: SORACOM-Peek
+        to: SORACOM Peek
+      - from: SORACOM Pek
+        to: SORACOM Peek
+      - from: SORACOM Peeek
+        to: SORACOM Peek
+      - from: SORACOM Peak
+        to: SORACOM Peek
   - expected: SORACOM Query
     options:
       wordBoundary: true
     patterns:
-      - /SORACOM[ \-]?Query/i
+      - /SORACOM[ \-]?Que[lr]+y/i
+    specs:
+      - from: SORACOM-Query
+        to: SORACOM Query
+      - from: SORACOM Quely
+        to: SORACOM Query
   - expected: SORACOM Relay
     options:
       wordBoundary: true
     patterns:
-      - /SORACOM[ \-]?Relay/i
+      - /SORACOM[ \-]?Re[lr][ae]?y/i
+    specs:
+      - from: SORACOM-Relay
+        to: SORACOM Relay
+      - from: SORACOM Reray
+        to: SORACOM Relay
+      - from: SORACOM Reley
+        to: SORACOM Relay
   - expected: SORACOM UG
     options:
       wordBoundary: true
@@ -170,18 +249,21 @@ rules:
       wordBoundary: true
     pattern:
       - /plan[ \-]?DU/i
-  - expected: plan-DU DU-10GB
+  - expected: plan-DU DU-$2GB
     options:
       wordBoundary: false
-    pattern: /plan[ \-]?DU[ \-]?(DU)?[ \-]?10GB/i
-  - expected: plan-DU DU-50GB
-    options:
-      wordBoundary: false
-    pattern: /plan[ \-]?DU[ \-]?(DU)?[ \-]?50GB/i
-  - expected: plan-DU DU-100GB
-    options:
-      wordBoundary: false
-    pattern: /plan[ \-]?DU[ \-]?(DU)?[ \-]?100GB/i
+    pattern: /plan[ \-]?DU[ \-]?(DU)?[ \-]?(10|50|100)GB/i
+    specs:
+      - from: plan-DU-DU-10GB
+        to: plan-DU DU-10GB
+      - from: plan-DU-DU-50GB
+        to: plan-DU DU-50GB
+      - from: plan-DU-DU-100GB
+        to: plan-DU DU-100GB
+      - from: plan-DU-10GB
+        to: plan-DU DU-10GB
+      - from: planDU-10GB
+        to: plan-DU DU-10GB
   - expected: plan-KM1
     options:
       wordBoundary: true
@@ -293,19 +375,19 @@ rules:
     options:
       wordBoundary: true
     patterns:
-      - /Soracom Cloud Camera Services?/i
+      - /Soracom[ \-]?Cloud[ \-]?Camera[ \-]?Services?/i
   - expected: Soracom Mobile
     options:
       wordBoundary: true
     patterns:
-      - /Soracom Mobile/i
+      - /Soracom[ \-]?Mobile/i
   - expected: Soracom Cloud SMS Delivery
     options:
       wordBoundary: true
     patterns:
-      - /Soracom Cloud SMS Delivery/i
+      - /Soracom[ \-]?Cloud[ \-]?SMS[ \-]?Delivery/i
   - expected: Soracom Cloud MFA
     options:
       wordBoundary: true
     patterns:
-      - /Soracom Cloud MFA/i
+      - /Soracom[ \-]?Cloud[ \-]?MFA/i
