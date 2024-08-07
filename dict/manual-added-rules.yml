@@ -98,6 +98,20 @@ rules:
         to: SORACOM Harvest
       - from: SORACOM Harbest
         to: SORACOM Harvest
+  - expected: SORACOM Interstellar
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Interste[rl]+[ae]r/i
+    specs:
+      - from: SORACOM-Interstellar
+        to: SORACOM Interstellar
+      - from: SORACOM Intersterrar
+        to: SORACOM Interstellar
+      - from: SORACOM Interstelar
+        to: SORACOM Interstellar
+      - from: SORACOM Intersteller
+        to: SORACOM Interstellar
   - expected: SORACOM Inventory
     options:
       wordBoundary: true

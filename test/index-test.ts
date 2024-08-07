@@ -17,6 +17,7 @@ const productsWithPrefix = [
   'Flux',
   'Gate',
   'Harvest',
+  'Interstellar',
   'Inventory',
   'Junction',
   'Krypton',
@@ -288,6 +289,35 @@ tester.run('SORACOM Harvest', report, {
       errors: [
         {
           message: 'SORACOM Harbest => SORACOM Harvest',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Interstellar', report, {
+  invalid: [
+    {
+      text: 'SORACOM Interstelar',
+      errors: [
+        {
+          message: 'SORACOM Interstelar => SORACOM Interstellar',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Intersteller',
+      errors: [
+        {
+          message: 'SORACOM Intersteller => SORACOM Interstellar',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Intersterrar',
+      errors: [
+        {
+          message: 'SORACOM Intersterrar => SORACOM Interstellar',
         },
       ],
     },
