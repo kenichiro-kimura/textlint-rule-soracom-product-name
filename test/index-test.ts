@@ -31,6 +31,12 @@ const productsWithPrefix = [
   'User Group'
 ];
 
+/**
+ * Test for products with prefix
+ * - Capital and lower case check
+ * - Hyphenate check
+ * - Camel case check
+ */
 productsWithPrefix.forEach((product) => {
   tester.run(`${product}`, report, {
     valid: [`SORACOM ${product}`],
@@ -71,6 +77,10 @@ productsWithPrefix.forEach((product) => {
   });
 });
 
+/**
+ * Test for special words
+ * - Capital and lower case check
+ */
 const productsWithoutPrefix = [
   'LoRaWAN',
   'Sigfox',
@@ -92,6 +102,13 @@ productsWithoutPrefix.forEach((product) => {
   });
 });
 
+/**
+ * Test for products with space
+ * - Capital and lower case check
+ * - Hyphenate check
+ * - Camel case check
+ * - VPG Types check
+ */
 const productsWithSpace = [
   'Virtual Private Gateway',
   'Unified Endpoint',
@@ -129,6 +146,79 @@ productsWithSpace.forEach((product) => {
       },
     ],
   });
+});
+
+const vpgTypes = [
+  'E',
+  'F',
+  'G',
+  'F2',
+];
+
+vpgTypes.forEach((type) => {
+  tester.run(`Virtual Private Gateway Type-${type}`, report, {
+    valid: [`Virtual Private Gateway Type-${type}`],
+    invalid: [
+      {
+        text: `Virtual Private Gateway Type ${type}`,
+        errors: [
+          {
+            message: `Virtual Private Gateway Type ${type} => Virtual Private Gateway Type-${type}`,
+          },
+        ],
+      },
+      {
+        text: `Virtual Private Gateway-Type-${type}`,
+        errors: [
+          {
+            message: `Virtual Private Gateway-Type-${type} => Virtual Private Gateway Type-${type}`,
+          },
+        ],
+      },
+    ],
+  });
+});
+
+/**
+ * Test for products , special case and avairable typos
+ */
+tester.run('SORACOM Arc', report, {
+  invalid: [
+    {
+      text: 'SORACOM Ark',
+      errors: [
+        {
+          message: 'SORACOM Ark => SORACOM Arc',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Beam', report, {
+  invalid: [
+    {
+      text: 'SORACOM Beem',
+      errors: [
+        {
+          message: 'SORACOM Beem => SORACOM Beam',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Door', report, {
+  invalid: [
+    {
+      text: 'SORACOM Dorr',
+      errors: [
+        {
+          message: 'SORACOM Dorr => SORACOM Door',
+        },
+      ],
+    },
+  ],
 });
 
 tester.run('SORACOM Endorse', report, {
@@ -400,6 +490,12 @@ tester.run('SORACOM Relay', report, {
   ],
 });
 
+/**
+ * Test for products with non-capitalized prefix
+ * - Capital and lower case check
+ * - Hyphenate check
+ * - Camel case check
+ */
 const nonCapitalizedProductsWithSpace = [
   'Cloud SMS Delivery',
   'Cloud MFA',
@@ -467,6 +563,9 @@ nonCapitalizedProductsWithSpace.forEach((product) => {
   });
 });
 
+/**
+ * Test for plural form
+ */
 tester.run('Soracom Cloud Camera Services', report, {
   valid: ['Soracom Cloud Camera Services'],
   invalid: [
@@ -482,6 +581,9 @@ tester.run('Soracom Cloud Camera Services', report, {
   ],
 });
 
+/**
+ * Test for subscription plans
+ */
 const subscriptions = [
   'planX1',
   'planX2',
@@ -703,37 +805,6 @@ duBundles.forEach((bundle) => {
         errors: [
           {
             message: `plan-DU DU${bundle} => plan-DU DU-${bundle}`,
-          },
-        ],
-      },
-    ],
-  });
-});
-
-const vpgTypes = [
-  'E',
-  'F',
-  'G',
-  'F2',
-];
-
-vpgTypes.forEach((type) => {
-  tester.run(`Virtual Private Gateway Type-${type}`, report, {
-    valid: [`Virtual Private Gateway Type-${type}`],
-    invalid: [
-      {
-        text: `Virtual Private Gateway Type ${type}`,
-        errors: [
-          {
-            message: `Virtual Private Gateway Type ${type} => Virtual Private Gateway Type-${type}`,
-          },
-        ],
-      },
-      {
-        text: `Virtual Private Gateway-Type-${type}`,
-        errors: [
-          {
-            message: `Virtual Private Gateway-Type-${type} => Virtual Private Gateway Type-${type}`,
           },
         ],
       },

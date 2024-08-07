@@ -9,12 +9,22 @@ rules:
     options:
       wordBoundary: true
     patterns:
-      - /SORACOM[ \-]?Arc/i
+      - /SORACOM[ \-]?Ar[ck]/i
+    specs:
+      - from: SORACOM-Arc
+        to: SORACOM Arc
+      - from: SORACOM Ark
+        to: SORACOM Arc
   - expected: SORACOM Beam
     options:
       wordBoundary: true
     patterns:
-      - /SORACOM[ \-]?Beam/i
+      - /SORACOM[ \-]?Be[ae]m/i
+    specs:
+      - from: SORACOM-Beam
+        to: SORACOM Beam
+      - from: SORACOM Beem
+        to: SORACOM Beam
   - expected: SORACOM Canal
     options:
       wordBoundary: true
@@ -29,7 +39,12 @@ rules:
     options:
       wordBoundary: true
     patterns:
-      - /SORACOM[ \-]?Door/i
+      - /SORACOM[ \-]?Do+r+/i
+    specs:
+      - from: SORACOM-Door
+        to: SORACOM Door
+      - from: SORACOM Dorr
+        to: SORACOM Door
   - expected: SORACOM Endorse
     options:
       wordBoundary: true
