@@ -29,7 +29,7 @@ const productsWithPrefix = [
   'Query',
   'Relay',
   'UG',
-  'User Group'
+  'User Group',
 ];
 
 /**
@@ -82,10 +82,7 @@ productsWithPrefix.forEach((product) => {
  * Test for special words
  * - Capital and lower case check
  */
-const productsWithoutPrefix = [
-  'LoRaWAN',
-  'Sigfox',
-];
+const productsWithoutPrefix = ['LoRaWAN', 'Sigfox'];
 
 productsWithoutPrefix.forEach((product) => {
   tester.run(`${product}`, report, {
@@ -130,18 +127,18 @@ productsWithSpace.forEach((product) => {
         ],
       },
       {
-        text: `${product.replace(/ /g,'')}`,
+        text: `${product.replace(/ /g, '')}`,
         errors: [
           {
-            message: `${product.replace(/ /g,'')} => ${product}`,
+            message: `${product.replace(/ /g, '')} => ${product}`,
           },
         ],
       },
       {
-        text: `${product.replace(/ /g,'-')}`,
+        text: `${product.replace(/ /g, '-')}`,
         errors: [
           {
-            message: `${product.replace(/ /g,'-')} => ${product}`,
+            message: `${product.replace(/ /g, '-')} => ${product}`,
           },
         ],
       },
@@ -149,12 +146,7 @@ productsWithSpace.forEach((product) => {
   });
 });
 
-const vpgTypes = [
-  'E',
-  'F',
-  'G',
-  'F2',
-];
+const vpgTypes = ['E', 'F', 'G', 'F2'];
 
 vpgTypes.forEach((type) => {
   tester.run(`Virtual Private Gateway Type-${type}`, report, {
@@ -378,10 +370,7 @@ tester.run('SORACOM Lagoon', report, {
     },
   ],
 });
-const lagoonVersions = [
-  '2',
-  '3',
-];
+const lagoonVersions = ['2', '3'];
 
 lagoonVersions.forEach((version) => {
   tester.run(`SORACOM Lagoon ${version}`, report, {
@@ -532,10 +521,7 @@ const nonCapitalizedProductsWithSpace = [
   'Cloud Camera Services',
 ];
 
-const nonCapitalizedProducts = [
-  'Mobile',
-  ...nonCapitalizedProductsWithSpace
-];
+const nonCapitalizedProducts = ['Mobile', ...nonCapitalizedProductsWithSpace];
 
 nonCapitalizedProducts.forEach((product) => {
   tester.run(`Soracom ${product}`, report, {
@@ -577,15 +563,14 @@ nonCapitalizedProducts.forEach((product) => {
   });
 });
 
-
 nonCapitalizedProductsWithSpace.forEach((product) => {
   tester.run(`Soracom ${product}`, report, {
     invalid: [
       {
-        text: `Soracom ${product.replace(/ /,'-')}`,
+        text: `Soracom ${product.replace(/ /, '-')}`,
         errors: [
           {
-            message: `Soracom ${product.replace(/ /,'-')} => Soracom ${product}`,
+            message: `Soracom ${product.replace(/ /, '-')} => Soracom ${product}`,
           },
         ],
       },
@@ -614,12 +599,7 @@ tester.run('Soracom Cloud Camera Services', report, {
 /**
  * Test for subscription plans
  */
-const subscriptions = [
-  'planX1',
-  'planX2',
-  'planX3',
-  'planP1', 
-];
+const subscriptions = ['planX1', 'planX2', 'planX3', 'planP1'];
 
 subscriptions.forEach((subscription) => {
   tester.run(subscription, report, {
@@ -767,10 +747,7 @@ subscriptionsForJapan.forEach((subscription) => {
   });
 });
 
-const bundle300MBs = [
-  'D',
-  'K2',
-];
+const bundle300MBs = ['D', 'K2'];
 
 bundle300MBs.forEach((subscription) => {
   tester.run(`plan-${subscription} ${subscription}-300MB`, report, {
@@ -804,11 +781,7 @@ bundle300MBs.forEach((subscription) => {
   });
 });
 
-const duBundles = [
-  '10GB',
-  '50GB',
-  '100GB',
-];
+const duBundles = ['10GB', '50GB', '100GB'];
 
 duBundles.forEach((bundle) => {
   tester.run(`plan-DU ${bundle}`, report, {
