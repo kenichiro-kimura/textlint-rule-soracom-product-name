@@ -9,6 +9,7 @@ const productsWithPrefix = [
   'Arc',
   'Beam',
   'Canal',
+  'CLI',
   'Door',
   'Direct',
   'Endorse',

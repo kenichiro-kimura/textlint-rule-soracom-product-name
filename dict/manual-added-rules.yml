@@ -30,6 +30,11 @@ rules:
       wordBoundary: true
     patterns:
       - /SORACOM[ \-]?Canal/i
+  - expected: SORACOM CLI
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?CLI/i
   - expected: SORACOM Direct
     options:
       wordBoundary: true
