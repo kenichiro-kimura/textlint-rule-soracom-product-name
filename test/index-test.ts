@@ -9,6 +9,7 @@ const productsWithPrefix = [
   'Arc',
   'Beam',
   'Canal',
+  'CLI',
   'Door',
   'Direct',
   'Endorse',
@@ -17,6 +18,7 @@ const productsWithPrefix = [
   'Flux',
   'Gate',
   'Harvest',
+  'Interstellar',
   'Inventory',
   'Junction',
   'Krypton',
@@ -28,9 +30,15 @@ const productsWithPrefix = [
   'Query',
   'Relay',
   'UG',
-  'User Group'
+  'User Group',
 ];
 
+/**
+ * Test for products with prefix
+ * - Capital and lower case check
+ * - Hyphenate check
+ * - Camel case check
+ */
 productsWithPrefix.forEach((product) => {
   tester.run(`${product}`, report, {
     valid: [`SORACOM ${product}`],
@@ -71,10 +79,11 @@ productsWithPrefix.forEach((product) => {
   });
 });
 
-const productsWithoutPrefix = [
-  'LoRaWAN',
-  'Sigfox',
-];
+/**
+ * Test for special words
+ * - Capital and lower case check
+ */
+const productsWithoutPrefix = ['LoRaWAN', 'Sigfox'];
 
 productsWithoutPrefix.forEach((product) => {
   tester.run(`${product}`, report, {
@@ -92,6 +101,13 @@ productsWithoutPrefix.forEach((product) => {
   });
 });
 
+/**
+ * Test for products with space
+ * - Capital and lower case check
+ * - Hyphenate check
+ * - Camel case check
+ * - VPG Types check
+ */
 const productsWithSpace = [
   'Virtual Private Gateway',
   'Unified Endpoint',
@@ -112,18 +128,18 @@ productsWithSpace.forEach((product) => {
         ],
       },
       {
-        text: `${product.replace(/ /g,'')}`,
+        text: `${product.replace(/ /g, '')}`,
         errors: [
           {
-            message: `${product.replace(/ /g,'')} => ${product}`,
+            message: `${product.replace(/ /g, '')} => ${product}`,
           },
         ],
       },
       {
-        text: `${product.replace(/ /g,'-')}`,
+        text: `${product.replace(/ /g, '-')}`,
         errors: [
           {
-            message: `${product.replace(/ /g,'-')} => ${product}`,
+            message: `${product.replace(/ /g, '-')} => ${product}`,
           },
         ],
       },
@@ -131,9 +147,101 @@ productsWithSpace.forEach((product) => {
   });
 });
 
+const vpgTypes = ['E', 'F', 'G', 'F2'];
+
+vpgTypes.forEach((type) => {
+  tester.run(`Virtual Private Gateway Type-${type}`, report, {
+    valid: [`Virtual Private Gateway Type-${type}`],
+    invalid: [
+      {
+        text: `Virtual Private Gateway Type ${type}`,
+        errors: [
+          {
+            message: `Virtual Private Gateway Type ${type} => Virtual Private Gateway Type-${type}`,
+          },
+        ],
+      },
+      {
+        text: `Virtual Private Gateway-Type-${type}`,
+        errors: [
+          {
+            message: `Virtual Private Gateway-Type-${type} => Virtual Private Gateway Type-${type}`,
+          },
+        ],
+      },
+    ],
+  });
+});
+
+/**
+ * Test for products , special case and avairable typos
+ */
+tester.run('SORACOM Arc', report, {
+  invalid: [
+    {
+      text: 'SORACOM Ark',
+      errors: [
+        {
+          message: 'SORACOM Ark => SORACOM Arc',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Beam', report, {
+  invalid: [
+    {
+      text: 'SORACOM Beem',
+      errors: [
+        {
+          message: 'SORACOM Beem => SORACOM Beam',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Door', report, {
+  invalid: [
+    {
+      text: 'SORACOM Dorr',
+      errors: [
+        {
+          message: 'SORACOM Dorr => SORACOM Door',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Endorse', report, {
+  invalid: [
+    {
+      text: 'SORACOM Endorce',
+      errors: [
+        {
+          message: 'SORACOM Endorce => SORACOM Endorse',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Funnel', report, {
+  invalid: [
+    {
+      text: 'SORACOM Funel',
+      errors: [
+        {
+          message: 'SORACOM Funel => SORACOM Funnel',
+        },
+      ],
+    },
+  ],
+});
 
 tester.run('SORACOM Funk', report, {
-  valid: ['SORACOM Funk'],
   invalid: [
     {
       text: 'SORACOM Func',
@@ -147,7 +255,6 @@ tester.run('SORACOM Funk', report, {
 });
 
 tester.run('SORACOM Flux', report, {
-  valid: ['SORACOM Flux'],
   invalid: [
     {
       text: 'SORACOM Flax',
@@ -160,10 +267,111 @@ tester.run('SORACOM Flux', report, {
   ],
 });
 
-const lagoonVersions = [
-  '2',
-  '3',
-];
+tester.run('SORACOM Harvest', report, {
+  invalid: [
+    {
+      text: 'SORACOM Hervest',
+      errors: [
+        {
+          message: 'SORACOM Hervest => SORACOM Harvest',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Harbest',
+      errors: [
+        {
+          message: 'SORACOM Harbest => SORACOM Harvest',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Interstellar', report, {
+  invalid: [
+    {
+      text: 'SORACOM Interstelar',
+      errors: [
+        {
+          message: 'SORACOM Interstelar => SORACOM Interstellar',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Intersteller',
+      errors: [
+        {
+          message: 'SORACOM Intersteller => SORACOM Interstellar',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Intersterrar',
+      errors: [
+        {
+          message: 'SORACOM Intersterrar => SORACOM Interstellar',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Inventory', report, {
+  invalid: [
+    {
+      text: 'SORACOM Inventry',
+      errors: [
+        {
+          message: 'SORACOM Inventry => SORACOM Inventory',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Inbentory',
+      errors: [
+        {
+          message: 'SORACOM Inbentory => SORACOM Inventory',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Krypton', report, {
+  invalid: [
+    {
+      text: 'SORACOM Klypton',
+      errors: [
+        {
+          message: 'SORACOM Klypton => SORACOM Krypton',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Lagoon', report, {
+  invalid: [
+    {
+      text: 'SORACOM Lagon',
+      errors: [
+        {
+          message: 'SORACOM Lagon => SORACOM Lagoon',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Laggon',
+      errors: [
+        {
+          message: 'SORACOM Laggon => SORACOM Lagoon',
+        },
+      ],
+    },
+  ],
+});
+const lagoonVersions = ['2', '3'];
 
 lagoonVersions.forEach((version) => {
   tester.run(`SORACOM Lagoon ${version}`, report, {
@@ -189,12 +397,132 @@ lagoonVersions.forEach((version) => {
   });
 });
 
-const nonCapitalizedProducts = [
-  'Mobile',
+tester.run('SORACOM Mosaic', report, {
+  invalid: [
+    {
+      text: 'SORACOM Mozaic',
+      errors: [
+        {
+          message: 'SORACOM Mozaic => SORACOM Mosaic',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Mosaik',
+      errors: [
+        {
+          message: 'SORACOM Mosaik => SORACOM Mosaic',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Napter', report, {
+  invalid: [
+    {
+      text: 'SORACOM Nepter',
+      errors: [
+        {
+          message: 'SORACOM Nepter => SORACOM Napter',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Naptar',
+      errors: [
+        {
+          message: 'SORACOM Naptar => SORACOM Napter',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Peek', report, {
+  invalid: [
+    {
+      text: 'SORACOM Peak',
+      errors: [
+        {
+          message: 'SORACOM Peak => SORACOM Peek',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Peeek',
+      errors: [
+        {
+          message: 'SORACOM Peeek => SORACOM Peek',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Query', report, {
+  invalid: [
+    {
+      text: 'SORACOM Querry',
+      errors: [
+        {
+          message: 'SORACOM Querry => SORACOM Query',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Quely',
+      errors: [
+        {
+          message: 'SORACOM Quely => SORACOM Query',
+        },
+      ],
+    },
+  ],
+});
+
+tester.run('SORACOM Relay', report, {
+  invalid: [
+    {
+      text: 'SORACOM Rely',
+      errors: [
+        {
+          message: 'SORACOM Rely => SORACOM Relay',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Reley',
+      errors: [
+        {
+          message: 'SORACOM Reley => SORACOM Relay',
+        },
+      ],
+    },
+    {
+      text: 'SORACOM Reray',
+      errors: [
+        {
+          message: 'SORACOM Reray => SORACOM Relay',
+        },
+      ],
+    },
+  ],
+});
+
+/**
+ * Test for products with non-capitalized prefix
+ * - Capital and lower case check
+ * - Hyphenate check
+ * - Camel case check
+ */
+const nonCapitalizedProductsWithSpace = [
   'Cloud SMS Delivery',
   'Cloud MFA',
   'Cloud Camera Services',
 ];
+
+const nonCapitalizedProducts = ['Mobile', ...nonCapitalizedProductsWithSpace];
 
 nonCapitalizedProducts.forEach((product) => {
   tester.run(`Soracom ${product}`, report, {
@@ -217,6 +545,14 @@ nonCapitalizedProducts.forEach((product) => {
         ],
       },
       {
+        text: `Soracom-${product}`,
+        errors: [
+          {
+            message: `Soracom-${product} => Soracom ${product}`,
+          },
+        ],
+      },
+      {
         text: `Soracom ${product.toLowerCase()}`,
         errors: [
           {
@@ -228,6 +564,24 @@ nonCapitalizedProducts.forEach((product) => {
   });
 });
 
+nonCapitalizedProductsWithSpace.forEach((product) => {
+  tester.run(`Soracom ${product}`, report, {
+    invalid: [
+      {
+        text: `Soracom ${product.replace(/ /, '-')}`,
+        errors: [
+          {
+            message: `Soracom ${product.replace(/ /, '-')} => Soracom ${product}`,
+          },
+        ],
+      },
+    ],
+  });
+});
+
+/**
+ * Test for plural form
+ */
 tester.run('Soracom Cloud Camera Services', report, {
   valid: ['Soracom Cloud Camera Services'],
   invalid: [
@@ -243,12 +597,10 @@ tester.run('Soracom Cloud Camera Services', report, {
   ],
 });
 
-const subscriptions = [
-  'planX1',
-  'planX2',
-  'planX3',
-  'planP1', 
-];
+/**
+ * Test for subscription plans
+ */
+const subscriptions = ['planX1', 'planX2', 'planX3', 'planP1'];
 
 subscriptions.forEach((subscription) => {
   tester.run(subscription, report, {
@@ -396,10 +748,7 @@ subscriptionsForJapan.forEach((subscription) => {
   });
 });
 
-const bundle300MBs = [
-  'D',
-  'K2',
-];
+const bundle300MBs = ['D', 'K2'];
 
 bundle300MBs.forEach((subscription) => {
   tester.run(`plan-${subscription} ${subscription}-300MB`, report, {
@@ -433,11 +782,7 @@ bundle300MBs.forEach((subscription) => {
   });
 });
 
-const duBundles = [
-  '10GB',
-  '50GB',
-  '100GB',
-];
+const duBundles = ['10GB', '50GB', '100GB'];
 
 duBundles.forEach((bundle) => {
   tester.run(`plan-DU ${bundle}`, report, {
@@ -464,37 +809,6 @@ duBundles.forEach((bundle) => {
         errors: [
           {
             message: `plan-DU DU${bundle} => plan-DU DU-${bundle}`,
-          },
-        ],
-      },
-    ],
-  });
-});
-
-const vpgTypes = [
-  'E',
-  'F',
-  'G',
-  'F2',
-];
-
-vpgTypes.forEach((type) => {
-  tester.run(`Virtual Private Gateway Type-${type}`, report, {
-    valid: [`Virtual Private Gateway Type-${type}`],
-    invalid: [
-      {
-        text: `Virtual Private Gateway Type ${type}`,
-        errors: [
-          {
-            message: `Virtual Private Gateway Type ${type} => Virtual Private Gateway Type-${type}`,
-          },
-        ],
-      },
-      {
-        text: `Virtual Private Gateway-Type-${type}`,
-        errors: [
-          {
-            message: `Virtual Private Gateway-Type-${type} => Virtual Private Gateway Type-${type}`,
           },
         ],
       },
