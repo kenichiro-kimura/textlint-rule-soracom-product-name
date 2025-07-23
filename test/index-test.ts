@@ -31,6 +31,7 @@ const productsWithPrefix = [
   'Relay',
   'UG',
   'User Group',
+  'Wisora',
 ];
 
 /**

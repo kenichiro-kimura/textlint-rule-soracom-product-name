@@ -250,6 +250,11 @@ rules:
       wordBoundary: true
     patterns:
       - /SORACOM[ \-]?User[ \-]?Group/i
+  - expected: SORACOM Wisora
+    options:
+      wordBoundary: true
+    patterns:
+      - /SORACOM[ \-]?Wisora/i
   - expected: SORACOM Access Management
     options:
       wordBoundary: true
