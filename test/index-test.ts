@@ -83,7 +83,7 @@ productsWithPrefix.forEach((product) => {
  * Test for special words
  * - Capital and lower case check
  */
-const productsWithoutPrefix = ['LoRaWAN', 'Sigfox'];
+const productsWithoutPrefix = ['LoRaWAN', 'Sigfox', 'Wisora'];
 
 productsWithoutPrefix.forEach((product) => {
   tester.run(`${product}`, report, {
