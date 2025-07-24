@@ -5,6 +5,11 @@ rules:
       wordBoundary: true
     patterns:
       - /SORACOM[ \-]?Air/i
+  - expected: Wisora
+    options:
+      wordBoundary: true
+    patterns:
+      - /Wisora/i
   - expected: SORACOM Arc
     options:
       wordBoundary: true
