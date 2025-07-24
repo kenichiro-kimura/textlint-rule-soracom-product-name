@@ -1,6 +1,6 @@
 {
   "name": "textlint-rule-soracom-product-name",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "release": {
     "branches": [
       "main",
